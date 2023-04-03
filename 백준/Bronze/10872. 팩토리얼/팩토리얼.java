@@ -10,14 +10,12 @@ public class Main {
         int n = Integer.parseInt(br.readLine());
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int answer = 1;
-        if(n == 0) {
-            bw.write(Integer.toString(answer));
-        } else {
+        if(n != 0) {
             for (int i = 1; i <= n; i++) {
                 answer *= i;
             }
-            bw.write(Integer.toString(answer));
-        }        
+        }    
+        bw.write(Integer.toString(answer));
         bw.flush();
         bw.close();
     }
