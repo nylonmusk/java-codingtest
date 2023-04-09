@@ -16,14 +16,14 @@ class Solution {
     }
 
         
-        public boolean sosu(int num){
-            boolean check = true;
-      for(int i=2; i<num; i++) {
-         if(num%i ==0) {
-            check = false;
-            break;
-         }
-      }
-      return check;
+    public boolean sosu(int num) {
+        boolean check = true;
+        for(int i=2; i<num; i++) {
+            if(num%i ==0) {
+                check = false;
+                break;
+            }
+        }
+        return check;
    }
 }              
