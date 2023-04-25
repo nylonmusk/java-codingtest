@@ -1,24 +1,23 @@
-import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Solution {
     public int[] solution(int []arr) {
-        Stack<Integer> stack = new Stack<>();
+        List<Integer> list = new ArrayList();
+        int value = Integer.MAX_VALUE;
         
         for (int i : arr) {
-            if (stack.peek() == i && !stack.isEmpty()) {
-                stack.pop();
-            } else {
-                stack.push(i);
+            if (value != i) {
+                list.add(i);
+                value = i;
             }
         }
         
-        int[] answer = new int[stack.size()];
-        // for (int i = 0; i < arr.length; i++) {
-        //     answer[i] = stack.get(i);
-        // }
-        System.out.println(stack.toString());
+        int[] answer = new int[list.size()];
         
-        
+        for(int i = 0; i < list.size(); i++){
+            answer[i] = list.get(i);
+        }
         return answer;
     }
 }
