@@ -11,6 +11,5 @@ public class Main {
         BigInteger B = new BigInteger(br.readLine());
         sb.append(A.add(B)).append("\n").append(A.subtract(B)).append("\n").append(A.multiply(B));
         System.out.println(sb);
-        br.close();
     }
 }
