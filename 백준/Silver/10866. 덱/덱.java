@@ -13,17 +13,17 @@ public class Main {
         while (N-- > 0) {
             String s = br.readLine();
 
-            if (s.substring(0, 4).equals("push")) {
-                if (s.substring(5, 6).equals("f")) {
+            if (s.startsWith("push")) {
+                if (s.charAt(5) == 'f') {
                     deque.addFirst(Integer.parseInt(s.substring(11)));
                 } else {
                     deque.addLast(Integer.parseInt(s.substring(10)));
                 }
             }
 
-            if (s.substring(0, 3).equals("pop")) {
+            if (s.startsWith("pop")) {
                 if (!deque.isEmpty()) {
-                    if (s.substring(4, 5).equals("f")) {
+                    if (s.charAt(4) == 'f') {
                         sb.append(deque.pollFirst()).append("\n");
                     } else {
                         sb.append(deque.pollLast()).append("\n");
