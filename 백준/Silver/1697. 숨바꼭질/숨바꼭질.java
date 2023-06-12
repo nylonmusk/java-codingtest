@@ -21,12 +21,12 @@ public class Main {
         int count = 0;
         visited[N] = true;
         Queue<Integer> queue = new LinkedList<>();
-        queue.add(N);
+        queue.offer(N);
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 int current = queue.poll();
-                
+
                 if (current == K) {
                     return count;
                 }
