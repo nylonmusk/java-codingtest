@@ -19,13 +19,15 @@ class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder answer = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
         while (T-- > 0) {
             StringTokenizer st = new StringTokenizer(br.readLine(), " ");
             int A = Integer.parseInt(st.nextToken());
             int B = Integer.parseInt(st.nextToken());
-            System.out.println(bfs(A, B));
+            answer.append(bfs(A, B)).append("\n");
         }
+        System.out.println(answer);
     }
 
     private static String bfs(int A, int B) {
