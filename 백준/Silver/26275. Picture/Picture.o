@@ -1,0 +1,23 @@
+extern printf
+extern scanf
+
+
+global main
+
+section .data
+	msg: db "#################### ##J1############J1## #########J1######### ##J1############J1## #########J1######### #########J1######### ##J1############J1## #########J1######### ##J1############J1## ####################",0
+section .text
+
+main:
+	push ebp
+	mov ebp,esp
+
+	push msg
+	call printf
+
+
+	mov eax,0
+	mov esp,ebp
+	pop ebp
+	mov eax,0
+	ret
