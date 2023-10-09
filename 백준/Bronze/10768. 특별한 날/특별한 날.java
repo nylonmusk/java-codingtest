@@ -15,6 +15,7 @@ public class Main {
         } else if (M == 2 && D == 18) {
             answer = "Special";
         }
+        
         System.out.println(answer);
     }
 }
