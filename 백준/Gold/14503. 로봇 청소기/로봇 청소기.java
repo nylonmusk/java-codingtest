@@ -4,19 +4,21 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class Main {
-    static int N;
-    static int M;
-    static int answer = 0;
-    static int[] dx = {-1, 0, 1, 0};
-    static int[] dy = {0, 1, 0, -1};
-    static int[][] room;
+    private static int N;
+    private static int M;
+    private static int answer = 0;
+    private static int[] dx = {-1, 0, 1, 0};
+    private static int[] dy = {0, 1, 0, -1};
+    private static int[][] room;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
+        
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         st = new StringTokenizer(br.readLine());
+        
         int r = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
         int d = Integer.parseInt(st.nextToken());
