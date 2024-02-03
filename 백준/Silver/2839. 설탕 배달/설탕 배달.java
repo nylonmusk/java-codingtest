@@ -7,7 +7,6 @@ import java.io.IOException;
 public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int sugar = Integer.parseInt(br.readLine());
 		int answer = -1;
 
@@ -17,12 +16,6 @@ public class Main {
 				break;
 			}
 		}
-        if (answer != 0) {
-            bw.write(String.valueOf(answer));    
-        } else{
-            bw.write("-1");
-        }
-		bw.flush();
-		bw.close();
+        System.out.println(answer != 0 ? answer : -1);
 	}
 }
