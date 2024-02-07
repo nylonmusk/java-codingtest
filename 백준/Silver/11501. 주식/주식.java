@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder answer = new StringBuilder();
+        
         int T = Integer.parseInt(br.readLine());
-
         while (T-- > 0) {
             int N = Integer.parseInt(br.readLine());
             long[] prices = new long[N];
