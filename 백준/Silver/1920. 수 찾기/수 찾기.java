@@ -15,6 +15,7 @@ class Main {
         for (int i = 0; i < N; i++) {
             setN.add(Integer.parseInt(st.nextToken()));
         }
+        
         int M = Integer.parseInt(br.readLine());
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
@@ -26,6 +27,7 @@ class Main {
             }
             answer.append("\n");
         }
+        
         System.out.println(answer);
     }
 }
