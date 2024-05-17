@@ -18,13 +18,13 @@ class Medal implements Comparable<Medal> {
 
     @Override
     public int compareTo(Medal m) {
-        if (this.gold == m.gold) {
-            if (this.silver == m.silver) {
-                return this.bronze - m.bronze;
-            }
-            return this.silver - m.silver;
+        if (this.gold != m.gold) {
+            return m.gold - this.gold;
+        } else if (this.silver != m.silver) {
+            return m.silver - this.silver;
+        } else {
+            return m.bronze - this.bronze;
         }
-        return this.gold - m.gold;
     }
 }
 
@@ -35,21 +35,27 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int K = Integer.parseInt(st.nextToken());
         List<Medal> list = new ArrayList<>();
+
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
             list.add(new Medal(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
         }
+
         Collections.sort(list);
 
-        int answer = 0;
-
-        for (Medal m : list) {
-            if (m.index == K) {
-                break;
+        int answer = 1;
+        for (int i = 0; i < N; i++) {
+            if (i > 0 && !isSameRank(list.get(i), list.get(i - 1))) {
+                answer = i + 1;
             }
-            answer++;
+            if (list.get(i).index == K) {
+                System.out.println(answer);
+                return;
+            }
         }
+    }
 
-        System.out.println(answer);
+    private static boolean isSameRank(Medal m1, Medal m2) {
+        return m1.gold == m2.gold && m1.silver == m2.silver && m1.bronze == m2.bronze;
     }
 }
