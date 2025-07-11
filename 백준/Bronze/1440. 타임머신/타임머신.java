@@ -4,10 +4,6 @@ import java.io.IOException;
 
 public class Main {
 
-    static boolean isValid(int h, int m, int s) {
-        return (1 <= h && h <= 12) && (0 <= m && m <= 59) && (0 <= s && s <= 59);
-    }
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] time = br.readLine().split(":");
@@ -27,5 +23,9 @@ public class Main {
         if (isValid(nums[2], nums[1], nums[0])) count++;
 
         System.out.println(count);
+    }
+    
+    private static boolean isValid(int h, int m, int s) {
+        return (1 <= h && h <= 12) && (0 <= m && m <= 59) && (0 <= s && s <= 59);
     }
 }
