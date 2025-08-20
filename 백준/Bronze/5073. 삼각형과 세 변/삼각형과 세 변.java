@@ -1,41 +1,43 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        StringBuilder answer = new StringBuilder();
 
         while (true) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
+            st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());
 
-            if (a == 0 && b == 0 && c == 0) {
-                break;
-            }
+            if (a == 0 && b == 0 && c == 0) break;
 
-            if (isValidTriangle(a, b, c)) {
-                System.out.println(getTriangleType(a, b, c));
+            List<Integer> list = new ArrayList<>();
+            list.add(a);
+            list.add(b);
+            list.add(c);
+
+            Collections.sort(list);
+
+            if (list.get(2) >= list.get(0) + list.get(1)) {
+                answer.append("Invalid");
+            } else if (list.get(0).equals(list.get(1)) && list.get(1).equals(list.get(2))) {
+                answer.append("Equilateral");
+            } else if (list.get(0).equals(list.get(1)) || list.get(1).equals(list.get(2))) {
+                answer.append("Isosceles");
             } else {
-                System.out.println("Invalid");
+                answer.append("Scalene");
             }
+            answer.append("\n");
         }
-    }
-
-    private static boolean isValidTriangle(int a, int b, int c) {
-        return a + b > c && b + c > a && c + a > b;
-    }
-
-    private static String getTriangleType(int a, int b, int c) {
-        if (a == b && b == c) {
-            return "Equilateral";
-        } else if (a == b || b == c || c == a) {
-            return "Isosceles";
-        } else {
-            return "Scalene";
-        }
+        System.out.print(answer);
     }
 }
